@@ -64,28 +64,28 @@
 
 ## Traceability
 
-Updated during roadmap creation.
+Updated after roadmap creation — 2026-05-21.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ENTR-01 | — | Pending |
-| ENTR-02 | — | Pending |
-| ENTR-03 | — | Pending |
-| ENTR-04 | — | Pending |
-| TAG-01 | — | Pending |
-| TAG-02 | — | Pending |
-| VIEW-01 | — | Pending |
-| VIEW-02 | — | Pending |
-| VIEW-03 | — | Pending |
-| SRCH-01 | — | Pending |
-| SRCH-02 | — | Pending |
-| SRCH-03 | — | Pending |
+| VIEW-01 | Phase 2 | Pending |
+| VIEW-02 | Phase 2 | Pending |
+| VIEW-03 | Phase 2 | Pending |
+| ENTR-01 | Phase 3 | Pending |
+| ENTR-02 | Phase 3 | Pending |
+| ENTR-03 | Phase 3 | Pending |
+| ENTR-04 | Phase 3 | Pending |
+| TAG-01 | Phase 3 | Pending |
+| TAG-02 | Phase 3 | Pending |
+| SRCH-01 | Phase 4 | Pending |
+| SRCH-02 | Phase 4 | Pending |
+| SRCH-03 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 12 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 12 ⚠️
+- Mapped to phases: 12
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-05-21*
-*Last updated: 2026-05-21 after initial definition*
+*Last updated: 2026-05-21 after roadmap creation*
