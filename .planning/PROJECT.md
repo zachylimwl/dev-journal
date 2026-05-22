@@ -50,9 +50,20 @@ A fast place to write and later find anything you've worked on — entries shoul
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| SQLite for storage | Local-only app, no external DB deps, simple file-based persistence | — Pending |
-| No authentication | Single-user personal tool on localhost | — Pending |
-| Next.js | User's chosen framework | — Pending |
+| SQLite for storage | Local-only app, no external DB deps, simple file-based persistence | ✓ Validated in Phase 1 |
+| No authentication | Single-user personal tool on localhost | ✓ Validated in Phase 1 |
+| Next.js | User's chosen framework | ✓ Validated in Phase 1 |
+| better-sqlite3 over sqlite3/Prisma | Sync API correct for Server Actions; fastest Node.js SQLite driver | ✓ Validated in Phase 1 |
+| Drizzle ORM | Thin TypeScript-native ORM, schema-first, no binary engine | ✓ Validated in Phase 1 |
+| Server Actions over API Routes | App Router standard for mutations; no boilerplate | ✓ Validated in Phase 1 |
+| FTS5 for full-text search | Built into SQLite; zero deps; BM25 ranking | ✓ Validated in Phase 1 |
+| globalThis singleton for DB | Prevents HMR connection leaks in Next.js dev | ✓ Validated in Phase 1 |
+
+---
+
+## Current State
+
+**Phase 1 complete (2026-05-22)** — Next.js 16.2.6 scaffold, SQLite DB layer (schema + FTS5 + triggers), Server Actions wired, `npm run build` clean. Walking Skeleton end-to-end proof complete. Ready for Phase 2 (Read Loop).
 
 ---
 
@@ -74,4 +85,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-21 after initialization*
+*Last updated: 2026-05-22 after Phase 1 completion*
