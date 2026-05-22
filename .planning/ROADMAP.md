@@ -10,7 +10,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Foundation** - DB layer, schema, Server Actions scaffold — nothing visible yet
+- [x] **Phase 1: Foundation** - DB layer, schema, Server Actions scaffold — nothing visible yet (completed 2026-05-22)
 - [ ] **Phase 2: Read Loop** - Entry list, entry detail, and Markdown rendering with syntax highlighting
 - [ ] **Phase 3: Write Loop** - Full entry CRUD, autosave, and tag management
 - [ ] **Phase 4: Search & Filter** - FTS5 keyword search, tag filter, and combined query
@@ -33,7 +33,7 @@
 
 Plans:
 - [x] 01-01-PLAN.md — Scaffold Next.js project, configure serverExternalPackages, build DB layer (schema.ts + globalThis singleton + drizzle.config.ts)
-- [ ] 01-02-PLAN.md — Wire Server Actions stub + home page, run [BLOCKING] drizzle-kit push, verify full schema and Walking Skeleton end-to-end
+- [x] 01-02-PLAN.md — Wire Server Actions stub + home page, run [BLOCKING] drizzle-kit push, verify full schema and Walking Skeleton end-to-end
 
 ### Phase 2: Read Loop
 **Goal**: Users can browse and read all entries with fully rendered Markdown
@@ -81,7 +81,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 1/2 | In Progress|  |
+| 1. Foundation | 2/2 | Complete   | 2026-05-22 |
 | 2. Read Loop | 0/? | Not started | - |
 | 3. Write Loop | 0/? | Not started | - |
 | 4. Search & Filter | 0/? | Not started | - |
