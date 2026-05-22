@@ -29,7 +29,11 @@
   2. `journal.db` is created automatically on first run with correct schema (entries, tags, entry_tags, FTS5 table, triggers)
   3. All Server Actions are reachable (no import or bundling errors for better-sqlite3)
   4. HMR restarts do not create multiple DB connections (globalThis singleton verified)
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Scaffold Next.js project, configure serverExternalPackages, build DB layer (schema.ts + globalThis singleton + drizzle.config.ts)
+- [ ] 01-02-PLAN.md — Wire Server Actions stub + home page, run [BLOCKING] drizzle-kit push, verify full schema and Walking Skeleton end-to-end
 
 ### Phase 2: Read Loop
 **Goal**: Users can browse and read all entries with fully rendered Markdown
@@ -77,7 +81,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/? | Not started | - |
+| 1. Foundation | 0/2 | Planned | - |
 | 2. Read Loop | 0/? | Not started | - |
 | 3. Write Loop | 0/? | Not started | - |
 | 4. Search & Filter | 0/? | Not started | - |
@@ -105,3 +109,4 @@
 
 ---
 *Created: 2026-05-21*
+*Phase 1 planned: 2026-05-22*
