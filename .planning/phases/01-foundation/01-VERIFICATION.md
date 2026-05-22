@@ -1,8 +1,8 @@
 ---
 phase: 01-foundation
 verified: 2026-05-22T21:40:00+08:00
-status: human_needed
-score: 9/10 must-haves verified
+status: verified
+score: 10/10 must-haves verified
 overrides_applied: 0
 human_verification:
   - test: "Start dev server and confirm localhost:3000 loads without runtime errors"
@@ -17,7 +17,7 @@ human_verification:
 
 **Phase Goal:** Establish the full working foundation — Next.js 16 scaffold, SQLite DB layer with Drizzle ORM, and Server Actions wired end-to-end as a Walking Skeleton. No user-facing features; success is a clean build and an auto-initializing database.
 **Verified:** 2026-05-22T21:40:00+08:00
-**Status:** human_needed
+**Status:** verified
 **Re-verification:** No — initial verification
 
 ---
@@ -37,9 +37,9 @@ human_verification:
 | 7 | FTS5 virtual table + 3 triggers defined in initSchema raw SQL only (not schema.ts) | VERIFIED | `schema.ts` contains no FTS5 reference; `index.ts` lines 37-58 contain all four FTS5/trigger `CREATE ... IF NOT EXISTS` statements |
 | 8 | `src/lib/actions.ts` has `'use server'` as first line and exports `getEntries` | VERIFIED | Line 1 is `'use server'`; line 13: `export async function getEntries()` calling `db.select().from(entries).all()` |
 | 9 | `src/app/page.tsx` is async Server Component importing from `@/lib/actions` | VERIFIED | No `'use client'` directive (comment only); line 8: `import { getEntries } from '@/lib/actions'`; line 10: `export default async function Home()` |
-| 10 | `npm run dev` starts without errors and localhost:3000 renders correctly | UNCERTAIN — human needed | Build succeeds; runtime behaviour across an actual HTTP request cycle cannot be confirmed by static analysis |
+| 10 | `npm run dev` starts without errors and localhost:3000 renders correctly | VERIFIED — human approved 2026-05-22 | Human ran dev server and approved runtime behavior via UAT checklist |
 
-**Score:** 9/10 truths verified (1 requires human confirmation)
+**Score:** 10/10 truths verified
 
 ---
 
