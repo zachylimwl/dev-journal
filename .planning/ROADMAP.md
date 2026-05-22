@@ -32,7 +32,7 @@
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Scaffold Next.js project, configure serverExternalPackages, build DB layer (schema.ts + globalThis singleton + drizzle.config.ts)
+- [x] 01-01-PLAN.md — Scaffold Next.js project, configure serverExternalPackages, build DB layer (schema.ts + globalThis singleton + drizzle.config.ts)
 - [ ] 01-02-PLAN.md — Wire Server Actions stub + home page, run [BLOCKING] drizzle-kit push, verify full schema and Walking Skeleton end-to-end
 
 ### Phase 2: Read Loop
@@ -81,7 +81,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/2 | Planned | - |
+| 1. Foundation | 1/2 | In Progress|  |
 | 2. Read Loop | 0/? | Not started | - |
 | 3. Write Loop | 0/? | Not started | - |
 | 4. Search & Filter | 0/? | Not started | - |
