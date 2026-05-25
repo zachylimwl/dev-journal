@@ -11,7 +11,7 @@
 ## Phases
 
 - [x] **Phase 1: Foundation** - DB layer, schema, Server Actions scaffold — nothing visible yet (completed 2026-05-22)
-- [ ] **Phase 2: Read Loop** - Entry list, entry detail, and Markdown rendering with syntax highlighting
+- [x] **Phase 2: Read Loop** - Entry list, entry detail, and Markdown rendering with syntax highlighting (completed 2026-05-25)
 - [ ] **Phase 3: Write Loop** - Full entry CRUD, autosave, and tag management
 - [ ] **Phase 4: Search & Filter** - FTS5 keyword search, tag filter, and combined query
 
@@ -53,7 +53,7 @@ Plans:
 - [x] 02-01-PLAN.md — Install react-markdown/remark-gfm/rehype-highlight/@tailwindcss/typography, configure globals.css, create format utilities, extend Server Actions with getEntries() + getEntryById()
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 02-02-PLAN.md — Build AppHeader, EntryCard, TagChip, MarkdownBody components; wire home page and layout; create entry detail page with 404 handling
+- [x] 02-02-PLAN.md — Build AppHeader, EntryCard, TagChip, MarkdownBody components; wire home page and layout; create entry detail page with 404 handling
 
 **Cross-cutting constraints:**
 - All Phase 2 files are React Server Components — no `'use client'` directive
@@ -94,7 +94,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-05-22 |
-| 2. Read Loop | 1/2 | In Progress|  |
+| 2. Read Loop | 2/2 | Complete   | 2026-05-25 |
 | 3. Write Loop | 0/? | Not started | - |
 | 4. Search & Filter | 0/? | Not started | - |
 
@@ -123,3 +123,4 @@ Plans:
 *Created: 2026-05-21*
 *Phase 1 planned: 2026-05-22*
 *Phase 2 planned: 2026-05-25*
+*Phase 2 completed: 2026-05-25*
