@@ -19,9 +19,9 @@
 
 ### Viewing
 
-- [ ] **VIEW-01**: User sees a list of all entries on the home page, newest first, with date and preview snippet
+- [x] **VIEW-01**: User sees a list of all entries on the home page, newest first, with date and preview snippet
 - [ ] **VIEW-02**: User can open an entry to read it fully rendered as formatted Markdown
-- [ ] **VIEW-03**: Fenced code blocks in entries render with syntax highlighting
+- [x] **VIEW-03**: Fenced code blocks in entries render with syntax highlighting
 
 ### Search
 
@@ -68,9 +68,9 @@ Updated after roadmap creation — 2026-05-21.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| VIEW-01 | Phase 2 | Pending |
+| VIEW-01 | Phase 2 | Complete |
 | VIEW-02 | Phase 2 | Pending |
-| VIEW-03 | Phase 2 | Pending |
+| VIEW-03 | Phase 2 | Complete |
 | ENTR-01 | Phase 3 | Pending |
 | ENTR-02 | Phase 3 | Pending |
 | ENTR-03 | Phase 3 | Pending |

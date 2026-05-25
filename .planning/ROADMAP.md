@@ -50,7 +50,7 @@ Plans:
 Plans:
 
 **Wave 1**
-- [ ] 02-01-PLAN.md — Install react-markdown/remark-gfm/rehype-highlight/@tailwindcss/typography, configure globals.css, create format utilities, extend Server Actions with getEntries() + getEntryById()
+- [x] 02-01-PLAN.md — Install react-markdown/remark-gfm/rehype-highlight/@tailwindcss/typography, configure globals.css, create format utilities, extend Server Actions with getEntries() + getEntryById()
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 02-02-PLAN.md — Build AppHeader, EntryCard, TagChip, MarkdownBody components; wire home page and layout; create entry detail page with 404 handling
@@ -94,7 +94,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-05-22 |
-| 2. Read Loop | 0/2 | Planned | - |
+| 2. Read Loop | 1/2 | In Progress|  |
 | 3. Write Loop | 0/? | Not started | - |
 | 4. Search & Filter | 0/? | Not started | - |
 
