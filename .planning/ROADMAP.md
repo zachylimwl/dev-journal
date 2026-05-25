@@ -45,8 +45,11 @@ Plans:
   2. Clicking an entry opens the full entry rendered as formatted Markdown (headings, lists, bold, italic, links)
   3. Fenced code blocks render with syntax highlighting (language-specific colors)
   4. Tailwind prose styles do not bleed into code block padding or background
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Install react-markdown/remark-gfm/rehype-highlight/@tailwindcss/typography, configure globals.css, create format utilities, extend Server Actions with getEntries() + getEntryById()
+- [ ] 02-02-PLAN.md — Build AppHeader, EntryCard, TagChip, MarkdownBody components; wire home page and layout; create entry detail page with 404 handling
 
 ### Phase 3: Write Loop
 **Goal**: Users can create, edit, delete, and tag entries with autosave — the app is daily-usable
@@ -82,7 +85,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-05-22 |
-| 2. Read Loop | 0/? | Not started | - |
+| 2. Read Loop | 0/2 | Planned | - |
 | 3. Write Loop | 0/? | Not started | - |
 | 4. Search & Filter | 0/? | Not started | - |
 
@@ -110,3 +113,4 @@ Plans:
 ---
 *Created: 2026-05-21*
 *Phase 1 planned: 2026-05-22*
+*Phase 2 planned: 2026-05-25*
