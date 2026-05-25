@@ -738,17 +738,19 @@ All actionable directives from `CLAUDE.md` that apply to Phase 2:
 
 ---
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **react-markdown `Markdown` vs `MarkdownAsync` — which is correct here?**
    - What we know: `Markdown` is synchronous; `MarkdownAsync` supports async plugins and RSC async rendering.
    - What's unclear: Whether the synchronous `Markdown` component needs `'use client'` in Next.js 16 RSC.
    - Recommendation: Use synchronous `Markdown` (no `'use client'`). The component has no hooks/browser APIs. If a build-time error occurs, wrap `MarkdownBody` in `'use client'` — functional impact is nil (Markdown still renders, just on client).
+   - **RESOLVED:** Use synchronous `Markdown` (default export), no `'use client'`, no `dynamic()`. See 02-01-PLAN.md Task 1 and 02-02-PLAN.md Task 1 action.
 
 2. **Should `highlight.js/styles/github-dark.css` be imported in `globals.css` or in `MarkdownBody`?**
    - What we know: Both work. globals.css applies globally (loads on every page); component import loads only when `MarkdownBody` renders.
    - What's unclear: Whether Next.js 16 correctly tree-shakes CSS imports in Server Components.
    - Recommendation: Import in `globals.css` via `@import` — simpler, reliable, always loads. Since every page in this app will eventually show Markdown (detail pages), the ~2KB CSS overhead on the home page is acceptable.
+   - **RESOLVED:** Import in `globals.css` via `@import "highlight.js/styles/github-dark.css"`. Do NOT import in MarkdownBody. See 02-01-PLAN.md Task 1 action.
 
 ---
 

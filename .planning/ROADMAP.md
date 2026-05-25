@@ -48,8 +48,17 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
+
+**Wave 1**
 - [ ] 02-01-PLAN.md — Install react-markdown/remark-gfm/rehype-highlight/@tailwindcss/typography, configure globals.css, create format utilities, extend Server Actions with getEntries() + getEntryById()
+
+**Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 02-02-PLAN.md — Build AppHeader, EntryCard, TagChip, MarkdownBody components; wire home page and layout; create entry detail page with 404 handling
+
+**Cross-cutting constraints:**
+- All Phase 2 files are React Server Components — no `'use client'` directive
+- `highlight.js/styles/github-dark.css` imported once in `globals.css` only — not in components
+- `prose-pre:p-0 prose-pre:bg-transparent` required on `<article>` to prevent Tailwind typography bleed
 
 ### Phase 3: Write Loop
 **Goal**: Users can create, edit, delete, and tag entries with autosave — the app is daily-usable
