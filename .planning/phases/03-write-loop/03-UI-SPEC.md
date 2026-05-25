@@ -1,7 +1,8 @@
 ---
 phase: 3
 slug: write-loop
-status: draft
+status: approved
+reviewed_at: 2026-05-25
 shadcn_initialized: false
 preset: none
 created: 2026-05-25
@@ -49,16 +50,18 @@ Exceptions:
 
 ## Typography
 
-Carry forward from Phase 2. No new type roles introduced.
+Carry forward from Phase 2. Phase 3 uses 4 type roles.
 
 | Role | Size | Weight | Line Height | Usage |
 |------|------|--------|-------------|-------|
-| Display | 24px (`text-2xl`) | 600 (`font-semibold`) | 1.2 | App header "Dev Journal" wordmark |
-| Heading | 30px (`text-3xl`) | 600 (`font-semibold`) | 1.2 | Entry detail page `<h1>` title |
-| Subheading | 18px (`text-lg`) | 600 (`font-semibold`) | 1.2 | Entry card title (`<h2>`) |
+| Display | 24px (`text-2xl`) | 600 (`font-semibold`) | 1.2 | App header "Dev Journal" wordmark; editor title input |
 | Body | 16px (`text-base`) | 400 (`font-normal`) | 1.5 | Editor title input text, AlertDialog body text |
 | Small | 14px (`text-sm`) | 400 (`font-normal`) | 1.5 | Date labels, back link, snippet text, autosave status label |
-| Label | 12px (`text-xs`) | 500 (`font-medium`) | 1.4 | TagChip text, date metadata on cards |
+| Label | 12px (`text-xs`) | 400 (`font-normal`) | 1.4 | TagChip text, date metadata on cards |
+
+**Out of scope for Phase 3:** Heading (30px) — used only on the Phase 2 read-only detail page `<h1>` title; Subheading (18px) — entry card titles (`<h2>`) introduced in Phase 2. Neither role is introduced in Phase 3 screens.
+
+**Font weights declared:** 400 (`font-normal`) for body/small/label/chip text; 600 (`font-semibold`) for display. No intermediate weight.
 
 **Editor title input:** `text-2xl font-semibold` to visually match the detail page heading — the field IS the title, not a form label above a text box.
 
@@ -147,7 +150,7 @@ Both pages share an `EditorForm` client component. Layout within `<main classNam
 ### TagChip in editor context (EditorTagChip)
 
 Extend `TagChip` with an `onRemove` prop for editor-only use. Visual chip is identical to Phase 2 `TagChip`:
-- `inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-zinc-100 text-zinc-600`
+- `inline-flex items-center px-2 py-0.5 rounded-full text-xs font-normal bg-zinc-100 text-zinc-600`
 - Append `×` button inside the chip: `ml-1.5 text-zinc-400 hover:text-zinc-700 cursor-pointer leading-none`
 - Hit area: wrap `×` in a `<button>` with `p-1 -m-1` to expand touch target to ~28px minimum
 
