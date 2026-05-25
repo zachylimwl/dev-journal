@@ -13,9 +13,11 @@ type Props = { params: Promise<{ id: string }> };
 
 export default async function EntryPage({ params }: Props) {
   const { id } = await params;
-  const entry = await getEntryById(Number(id));
+  const numericId = parseInt(id, 10);
+  if (isNaN(numericId)) notFound();
+  const entry = await getEntryById(numericId);
 
-  if (!entry) notFound();
+  if (!entry) return notFound();
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-8">
