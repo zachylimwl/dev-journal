@@ -17,6 +17,9 @@ export function generateSnippet(body: string, maxLen = 300): string {
 }
 
 export function formatEntryDate(createdAt: Date, now: Date = new Date()): string {
+  if (!(createdAt instanceof Date) || isNaN(createdAt.getTime())) {
+    return 'Unknown date';
+  }
   const diffMs = now.getTime() - createdAt.getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
