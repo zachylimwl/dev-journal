@@ -1,21 +1,29 @@
 // src/app/page.tsx
-// Home page — async Server Component.
-// Imports getEntries from @/lib/actions, triggering the DB auto-creation import chain:
-//   page.tsx → actions.ts → db/index.ts → .data/journal.db
-// No 'use client' directive — must remain a Server Component so the DB import chain
-// runs only server-side. Phase 2 will add full entry list layout.
-
+// Home page — async Server Component. Shows all entries newest-first.
+// No 'use client' directive — must remain a Server Component so DB import
+// chain runs only server-side.
 import { getEntries } from '@/lib/actions';
+import EntryCard from '@/components/entry-card';
 
 export default async function Home() {
   const entries = await getEntries();
 
   return (
-    <main className="p-8">
-      <h1 className="text-3xl font-semibold">Dev Journal</h1>
-      <p className="mt-4 text-zinc-600">
-        {entries.length === 0 ? '0 entries' : `${entries.length} entries`}
-      </p>
+    <main className="max-w-5xl mx-auto px-4 py-8">
+      {entries.length === 0 ? (
+        <div className="py-16 text-center">
+          <p className="text-zinc-500 text-sm">No entries yet.</p>
+          <p className="mt-1 text-zinc-400 text-xs">
+            Your journal is empty. Entries you write will appear here.
+          </p>
+        </div>
+      ) : (
+        <div className="divide-y divide-zinc-200">
+          {entries.map((entry) => (
+            <EntryCard key={entry.id} entry={entry} />
+          ))}
+        </div>
+      )}
     </main>
   );
 }
