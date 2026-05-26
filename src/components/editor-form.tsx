@@ -4,7 +4,7 @@
 // Shared Client Component for /new and /entries/[id]/edit.
 // Handles autosave debounce, tag chip zone, and MDEditor dynamic import.
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -37,14 +37,27 @@ export default function EditorForm({ initialEntry, mode }: Props) {
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const fadeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // WR-02: Clear pending timers on unmount to prevent state updates on dead component
+  useEffect(() => {
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      if (fadeTimerRef.current) clearTimeout(fadeTimerRef.current);
+    };
+  }, []);
+
   const triggerAutosave = useCallback(
     (t: string, b: string, tags: string[]) => {
-      if (isSavingRef.current) return; // Skip if save already in flight
       if (debounceRef.current) clearTimeout(debounceRef.current);
 
       debounceRef.current = setTimeout(async () => {
-        if (!t.trim() && !b.trim()) return; // D-03 orphan guard — skip if both empty
+        // Only skip if no entry created yet (prevents creating empty orphan entries)
+        if (entryIdRef.current === null && !t.trim() && !b.trim()) return;
 
+        if (isSavingRef.current) {
+          // Re-schedule once the current save finishes instead of dropping keystrokes
+          triggerAutosave(t, b, tags);
+          return;
+        }
         isSavingRef.current = true;
         setSaveStatus('saving');
         try {
