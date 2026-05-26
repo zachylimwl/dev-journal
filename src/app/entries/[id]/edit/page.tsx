@@ -5,6 +5,7 @@
 import { notFound } from 'next/navigation';
 import { getEntryById } from '@/lib/actions';
 import EditorForm from '@/components/editor-form';
+import DeleteButton from '@/components/delete-button';
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -19,6 +20,7 @@ export default async function EditEntryPage({ params }: Props) {
   return (
     <main className="max-w-5xl mx-auto px-4 py-8">
       <EditorForm initialEntry={entry} mode="edit" />
+      <DeleteButton entryId={entry.id} />
     </main>
   );
 }
