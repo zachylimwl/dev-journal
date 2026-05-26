@@ -76,7 +76,7 @@ Plans:
 Plans:
 
 **Wave 0**
-- [ ] 03-01-PLAN.md — Install @uiw/react-md-editor + shadcn AlertDialog bootstrap; set up Vitest with tag normalization and Server Action unit tests
+- [x] 03-01-PLAN.md — Install @uiw/react-md-editor + shadcn AlertDialog bootstrap; set up Vitest with tag normalization and Server Action unit tests
 
 **Wave 1** *(blocked on Wave 0 completion)*
 - [ ] 03-02-PLAN.md — Add createEntry, updateEntry, deleteEntry, setEntryTags Server Actions; add "New Entry" button to AppHeader
@@ -115,7 +115,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-05-22 |
 | 2. Read Loop | 2/2 | Complete   | 2026-05-25 |
-| 3. Write Loop | 0/4 | Planned     | - |
+| 3. Write Loop | 1/4 | In Progress|  |
 | 4. Search & Filter | 0/? | Not started | - |
 
 ---
