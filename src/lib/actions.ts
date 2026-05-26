@@ -90,3 +90,39 @@ export async function getEntryById(id: number): Promise<EntryDetail | null> {
   }
   return entry;
 }
+
+export async function createEntry(title: string, body: string): Promise<{ id: number }> {
+  const result = db
+    .insert(entries)
+    .values({ title, body })
+    .returning({ id: entries.id })
+    .all();
+  revalidatePath('/');
+  return { id: result[0].id };
+}
+
+export async function updateEntry(id: number, title: string, body: string): Promise<void> {
+  db.update(entries)
+    .set({ title, body, updatedAt: new Date() })
+    .where(eq(entries.id, id))
+    .run();
+  revalidatePath('/');
+  revalidatePath(`/entries/${id}`);
+}
+
+export async function deleteEntry(id: number): Promise<void> {
+  db.delete(entries).where(eq(entries.id, id)).run();
+  revalidatePath('/');
+}
+
+export async function setEntryTags(entryId: number, tagNames: string[]): Promise<void> {
+  const normalized = [...new Set(tagNames.map(t => t.trim().toLowerCase()).filter(Boolean))];
+  db.delete(entryTags).where(eq(entryTags.entryId, entryId)).run();
+  for (const name of normalized) {
+    db.insert(tags).values({ name }).onConflictDoNothing().run();
+    const tag = db.select().from(tags).where(eq(tags.name, name)).all()[0];
+    db.insert(entryTags).values({ entryId, tagId: tag.id }).onConflictDoNothing().run();
+  }
+  revalidatePath('/');
+  revalidatePath(`/entries/${entryId}`);
+}
