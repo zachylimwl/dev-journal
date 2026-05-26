@@ -10,8 +10,9 @@ export default function AppHeader() {
         <Link href="/" className="text-2xl font-semibold text-zinc-900 no-underline">
           Dev Journal
         </Link>
-        {/* Right slot — Phase 3 adds "New Entry" button here */}
-        <div />
+        <Link href="/new" className="px-4 py-2 rounded-md text-sm font-medium bg-zinc-900 text-white hover:bg-zinc-700">
+          New Entry
+        </Link>
       </div>
     </header>
   );
