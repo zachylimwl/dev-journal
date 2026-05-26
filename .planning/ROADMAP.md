@@ -71,8 +71,28 @@ Plans:
   3. User can delete an entry after confirming a prompt — entry is removed from the list
   4. User can add or remove project tags on any entry; tags appear on the entry card and detail view
   5. Tags are stored normalized (trimmed, lowercased, deduplicated, empties removed) regardless of how they were typed
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 4 plans
+
+Plans:
+
+**Wave 0**
+- [ ] 03-01-PLAN.md — Install @uiw/react-md-editor + shadcn AlertDialog bootstrap; set up Vitest with tag normalization and Server Action unit tests
+
+**Wave 1** *(blocked on Wave 0 completion)*
+- [ ] 03-02-PLAN.md — Add createEntry, updateEntry, deleteEntry, setEntryTags Server Actions; add "New Entry" button to AppHeader
+
+**Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 03-03-PLAN.md — Build EditorTagChip + EditorForm client component with autosave debounce; wire /new and /entries/[id]/edit pages
+
+**Wave 3** *(blocked on Wave 2 completion)*
+- [ ] 03-04-PLAN.md — Build DeleteButton with AlertDialog; add Edit + Delete to detail page and Delete to edit page (D-10)
+
+**Cross-cutting constraints:**
+- No `'use client'` at page level — pages stay Server Components; EditorForm and DeleteButton are Client Components
+- `@uiw/react-md-editor` CSS imported in editor-form.tsx only (not globals.css) — prevents prose style bleed on detail page
+- `createEntry` returns `{ id: number }` to Client Component; Client Component calls `router.replace()` — never `redirect()` inside Server Action for autosave
+- Race condition guard: `entryIdRef.current = -1` sentinel while createEntry is in flight; only call createEntry if value is `null`
+- Tags normalized client-side on chip creation AND server-side in setEntryTags (double normalization guard)
 
 ### Phase 4: Search & Filter
 **Goal**: Users can find any past entry by keyword, by tag, or by both simultaneously
@@ -95,7 +115,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-05-22 |
 | 2. Read Loop | 2/2 | Complete   | 2026-05-25 |
-| 3. Write Loop | 0/? | Not started | - |
+| 3. Write Loop | 0/4 | Planned     | - |
 | 4. Search & Filter | 0/? | Not started | - |
 
 ---
