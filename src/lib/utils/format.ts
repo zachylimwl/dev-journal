@@ -27,6 +27,7 @@ export function formatEntryDate(createdAt: Date, now: Date = new Date()): string
     month: 'long', day: 'numeric', year: 'numeric',
   });
 
+  if (diffDays < 0) return `${absolute}`; // future date — show absolute only
   if (diffDays === 0) return `Today — ${absolute}`;
   if (diffDays === 1) return `Yesterday — ${absolute}`;
   return `${diffDays} days ago — ${absolute}`;
