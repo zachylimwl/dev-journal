@@ -584,12 +584,12 @@ export default function DeleteButton({ entryId }: { entryId: number }) {
       saveStatus === 'idle' ? 'opacity-0 text-zinc-300' : 'opacity-100 text-zinc-500'
     }`}
   >
-    {saveStatus === 'saving' ? 'Saving...' : saveStatus === 'saved' ? 'Saved just now' : ' '}
+    {saveStatus === 'saving' ? 'Saving...' : saveStatus === 'saved' ? 'Saved just now' : ' '}
   </span>
 </div>
 ```
 
-**Note:** Use ` ` (non-breaking space) for idle state text to prevent layout shift — element stays in DOM with height but is invisible (`opacity-0`).
+**Note:** Use ` ` (non-breaking space) for idle state text to prevent layout shift — element stays in DOM with height but is invisible (`opacity-0`).
 
 ---
 
@@ -726,22 +726,25 @@ No missing dependencies with no fallback. Phase 3 has no new external runtime de
 
 ---
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **`setEntryTags` vs combined `saveEntry` action**
    - What we know: Two sequential Server Actions (update + setTags) work but add latency and complexity
    - What's unclear: Whether the planner should merge into a single `saveEntry(id, title, body, tags)` action
    - Recommendation: Planner should decide — merged action is simpler and reduces round-trips; research supports either approach
+   - (RESOLVED: separate updateEntry + setEntryTags, called sequentially with await in EditorForm)
 
 2. **Vitest vs no testing framework**
    - What we know: No test framework exists in the project; `nyquist_validation: true` requires one
    - What's unclear: User may prefer to skip unit tests for v1 given the personal-tool context
    - Recommendation: Create Vitest setup in Wave 0 for tag normalization tests (pure logic, high value, fast) — skip integration tests for Server Actions if setup cost is too high
+   - (RESOLVED: Vitest installed in Wave 0, vitest.config.ts + test stubs in 03-01)
 
 3. **MDEditor CSS import location**
    - What we know: Importing in Client Component file scopes to dynamic chunk; importing in globals.css applies globally
    - What's unclear: Whether globals.css import causes actual conflicts with Phase 2 prose styles
    - Recommendation: Import in Client Component file to be safe; validate detail page still looks correct
+   - (RESOLVED: import in editor-form.tsx Client Component, not globals.css)
 
 ---
 
