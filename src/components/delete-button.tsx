@@ -28,13 +28,11 @@ export default function DeleteButton({ entryId }: Props) {
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <button
-          type="button"
-          className="px-3 py-1.5 rounded-md text-sm font-medium text-red-600 hover:text-red-700 hover:bg-red-50"
-        >
-          Delete
-        </button>
+      <AlertDialogTrigger
+        type="button"
+        className="px-3 py-1.5 rounded-md text-sm font-medium text-red-600 hover:text-red-700 hover:bg-red-50"
+      >
+        Delete
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
