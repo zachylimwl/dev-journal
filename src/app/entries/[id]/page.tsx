@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { getEntryById } from '@/lib/actions';
 import MarkdownBody from '@/components/markdown-body';
 import TagChip from '@/components/tag-chip';
+import DeleteButton from '@/components/delete-button';
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -33,6 +34,15 @@ export default async function EntryPage({ params }: Props) {
           ))}
         </div>
       )}
+      <div className="mt-4 flex gap-3">
+        <Link
+          href={`/entries/${entry.id}/edit`}
+          className="px-3 py-1.5 rounded-md text-sm font-medium bg-zinc-100 text-zinc-800 hover:bg-zinc-200"
+        >
+          Edit
+        </Link>
+        <DeleteButton entryId={entry.id} />
+      </div>
       <MarkdownBody body={entry.body} className="mt-8" />
     </main>
   );
