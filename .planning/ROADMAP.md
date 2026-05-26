@@ -82,7 +82,7 @@ Plans:
 - [x] 03-02-PLAN.md — Add createEntry, updateEntry, deleteEntry, setEntryTags Server Actions; add "New Entry" button to AppHeader
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 03-03-PLAN.md — Build EditorTagChip + EditorForm client component with autosave debounce; wire /new and /entries/[id]/edit pages
+- [x] 03-03-PLAN.md — Build EditorTagChip + EditorForm client component with autosave debounce; wire /new and /entries/[id]/edit pages
 
 **Wave 3** *(blocked on Wave 2 completion)*
 - [ ] 03-04-PLAN.md — Build DeleteButton with AlertDialog; add Edit + Delete to detail page and Delete to edit page (D-10)
@@ -115,7 +115,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-05-22 |
 | 2. Read Loop | 2/2 | Complete   | 2026-05-25 |
-| 3. Write Loop | 2/4 | In Progress|  |
+| 3. Write Loop | 3/4 | In Progress|  |
 | 4. Search & Filter | 0/? | Not started | - |
 
 ---
