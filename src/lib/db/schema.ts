@@ -2,7 +2,7 @@
 // Drizzle ORM table definitions for the Dev Journal
 // Source: orm.drizzle.team/docs/column-types/sqlite
 
-import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, integer, text, primaryKey } from 'drizzle-orm/sqlite-core';
 
 export const entries = sqliteTable('entries', {
   id:        integer('id').primaryKey({ autoIncrement: true }),
@@ -26,4 +26,6 @@ export const tags = sqliteTable('tags', {
 export const entryTags = sqliteTable('entry_tags', {
   entryId: integer('entry_id').notNull().references(() => entries.id, { onDelete: 'cascade' }),
   tagId:   integer('tag_id').notNull().references(() => tags.id,    { onDelete: 'cascade' }),
-});
+}, (table) => ({
+  pk: primaryKey({ columns: [table.entryId, table.tagId] }),
+}));
