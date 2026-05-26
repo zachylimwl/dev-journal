@@ -12,7 +12,7 @@
 
 - [x] **Phase 1: Foundation** - DB layer, schema, Server Actions scaffold — nothing visible yet (completed 2026-05-22)
 - [x] **Phase 2: Read Loop** - Entry list, entry detail, and Markdown rendering with syntax highlighting (completed 2026-05-25)
-- [ ] **Phase 3: Write Loop** - Full entry CRUD, autosave, and tag management
+- [x] **Phase 3: Write Loop** - Full entry CRUD, autosave, and tag management (completed 2026-05-26)
 - [ ] **Phase 4: Search & Filter** - FTS5 keyword search, tag filter, and combined query
 
 ---
@@ -85,7 +85,7 @@ Plans:
 - [x] 03-03-PLAN.md — Build EditorTagChip + EditorForm client component with autosave debounce; wire /new and /entries/[id]/edit pages
 
 **Wave 3** *(blocked on Wave 2 completion)*
-- [ ] 03-04-PLAN.md — Build DeleteButton with AlertDialog; add Edit + Delete to detail page and Delete to edit page (D-10)
+- [x] 03-04-PLAN.md — Build DeleteButton with AlertDialog; add Edit + Delete to detail page and Delete to edit page (D-10)
 
 **Cross-cutting constraints:**
 - No `'use client'` at page level — pages stay Server Components; EditorForm and DeleteButton are Client Components
@@ -115,7 +115,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-05-22 |
 | 2. Read Loop | 2/2 | Complete   | 2026-05-25 |
-| 3. Write Loop | 3/4 | In Progress|  |
+| 3. Write Loop | 4/4 | Complete   | 2026-05-26 |
 | 4. Search & Filter | 0/? | Not started | - |
 
 ---
