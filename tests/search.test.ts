@@ -62,14 +62,21 @@ beforeEach(() => {
   // Swap the drizzle db's underlying sqlite client for our in-memory instance.
   // db.$client is the raw better-sqlite3 Database — replacing it makes all
   // db.$client.prepare() calls in searchEntries() hit the in-memory DB.
-  // The Drizzle query builder also routes through $client for .all()/.run().
+  // We also swap db.session.client so Drizzle's query builder (.all()/.run())
+  // routes through the in-memory DB (session stores its own client reference).
   originalClient = db.$client;
   (db as unknown as { $client: InstanceType<typeof Database> }).$client = sqlite;
+  // Also patch the session's internal client reference used by the Drizzle
+  // query builder (db.select()...all() etc.)
+  const session = (db as unknown as { session: { client: InstanceType<typeof Database> } }).session;
+  if (session) session.client = sqlite;
 });
 
 afterEach(() => {
   // Restore the original client so other test files are not affected
   (db as unknown as { $client: InstanceType<typeof Database> }).$client = originalClient;
+  const session = (db as unknown as { session: { client: InstanceType<typeof Database> } }).session;
+  if (session) session.client = originalClient;
   sqlite.close();
 });
 
@@ -249,7 +256,7 @@ describe('searchEntries — combined keyword + tag (SRCH-03)', () => {
   it('returns only entries matching both keyword and tag', async () => {
     const entry1 = insertEntry('React Hooks', 'useState and useEffect with TypeScript');
     const entry2 = insertEntry('React without types', 'Plain JavaScript hooks');
-    const entry3 = insertEntry('TypeScript basics', 'No React here, pure TS');
+    const entry3 = insertEntry('TypeScript basics', 'Pure TS, no hooks mentioned');
 
     const tsTagId = insertTag('typescript');
     const reactTagId = insertTag('react');
