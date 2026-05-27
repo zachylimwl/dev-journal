@@ -25,9 +25,9 @@
 
 ### Search
 
-- [ ] **SRCH-01**: User can search entries by keyword with live results (updates on keypress, debounced)
-- [ ] **SRCH-02**: User can filter entries by tag to see all entries with that tag
-- [ ] **SRCH-03**: User can combine keyword search and tag filter simultaneously
+- [x] **SRCH-01**: User can search entries by keyword with live results (updates on keypress, debounced)
+- [x] **SRCH-02**: User can filter entries by tag to see all entries with that tag
+- [x] **SRCH-03**: User can combine keyword search and tag filter simultaneously
 
 ## v2 Requirements
 
@@ -77,9 +77,9 @@ Updated after roadmap creation — 2026-05-21.
 | ENTR-04 | Phase 3 | Pending |
 | TAG-01 | Phase 3 | Pending |
 | TAG-02 | Phase 3 | Pending |
-| SRCH-01 | Phase 4 | Pending |
-| SRCH-02 | Phase 4 | Pending |
-| SRCH-03 | Phase 4 | Pending |
+| SRCH-01 | Phase 4 | Complete |
+| SRCH-02 | Phase 4 | Complete |
+| SRCH-03 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 12 total

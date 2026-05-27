@@ -109,7 +109,7 @@ Plans:
 Plans:
 
 **Wave 1**
-- [ ] 04-01-PLAN.md — Implement searchEntries(q, tag) Server Action with FTS5 guard, four query branches, two-query tag merge; write tests/search.test.ts (TDD — RED then GREEN)
+- [x] 04-01-PLAN.md — Implement searchEntries(q, tag) Server Action with FTS5 guard, four query branches, two-query tag merge; write tests/search.test.ts (TDD — RED then GREEN)
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 04-02-PLAN.md — Create SearchInput client component (debounced router.replace, preserves ?tag=); create ActiveFilterChip (× clears ?tag=, preserves ?q=); upgrade TagChip to 'use client' button with router.push
@@ -136,7 +136,7 @@ Plans:
 | 1. Foundation | 2/2 | Complete   | 2026-05-22 |
 | 2. Read Loop | 2/2 | Complete   | 2026-05-25 |
 | 3. Write Loop | 4/4 | Complete   | 2026-05-26 |
-| 4. Search & Filter | 0/3 | Not started | - |
+| 4. Search & Filter | 1/3 | In Progress|  |
 
 ---
 

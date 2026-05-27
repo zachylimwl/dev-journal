@@ -3,21 +3,21 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 current_phase: 04
-current_plan: 0
+current_plan: 1
 status: executing
-last_updated: "2026-05-27T06:39:38.008Z"
+last_updated: "2026-05-27T07:11:42.683Z"
 progress:
   total_phases: 4
   completed_phases: 3
   total_plans: 11
-  completed_plans: 8
-  percent: 73
+  completed_plans: 10
+  percent: 82
 ---
 
 # Project State: Dev Journal
 
-**Last updated:** 2026-05-26
-**Session:** Phase 4 planning
+**Last updated:** 2026-05-27
+**Session:** Phase 4, Plan 01 complete — searchEntries() TDD
 
 ---
 
@@ -33,18 +33,18 @@ progress:
 
 ## Current Position
 
-Phase: 04 (search-filter) — PLANNING
-Plan: 0 of TBD
+Phase: 04 (search-filter) — EXECUTING
+Plan: 1 of 3 complete
 **Current Phase:** 04
-**Current Plan:** 0
-**Status:** Ready to execute
+**Current Plan:** 1
+**Status:** Executing — 04-02 next
 
 ```
-Progress: [████████████░░░░] 75%
-Phase 1 [✓] → Phase 2 [✓] → Phase 3 [✓] → Phase 4 [P]
+Progress: [█████████░] 82%
+Phase 1 [✓] → Phase 2 [✓] → Phase 3 [✓] → Phase 4 [▶]
 ```
 
-*(✓ = Complete, P = Planning)*
+*(✓ = Complete, ▶ = In Progress)*
 
 ---
 
@@ -55,7 +55,7 @@ Phase 1 [✓] → Phase 2 [✓] → Phase 3 [✓] → Phase 4 [P]
 | 1 | Foundation | Complete | 01-01, 01-02 |
 | 2 | Read Loop | Complete | 02-01, 02-02 |
 | 3 | Write Loop | Complete | 03-01, 03-02, 03-03, 03-04 |
-| 4 | Search & Filter | Planning | — |
+| 4 | Search & Filter | Executing (1/3) | 04-01 ✓, 04-02, 04-03 |
 
 ---
 
@@ -69,6 +69,8 @@ Phase 1 [✓] → Phase 2 [✓] → Phase 3 [✓] → Phase 4 [P]
 | Drizzle ORM | TypeScript-native, thin, pairs well with better-sqlite3 |
 | Server Actions for all mutations | Eliminates API route boilerplate; `revalidatePath` handles cache |
 | URL as search/filter state | `SearchBar` + `TagFilter` push to URL params; no client state needed |
+| All searchEntries branches use db.$client raw SQL | Enables test DB injection (Drizzle stores own session.client); FTS5 requires raw SQL anyway |
+| Test DB injection patches db.$client AND db.session.client | Drizzle query builder uses session.client independently; both must be swapped for in-memory isolation |
 | FTS5 content table + triggers | Sync FTS index on INSERT/UPDATE/DELETE at schema creation time |
 | globalThis DB singleton | Survives HMR re-evaluation; prevents multiple connections |
 | `process.cwd()` for DB path | Consistent in dev and build; never use `__dirname` |
@@ -106,7 +108,8 @@ None.
 **Phase 2 complete:** 2026-05-25
 **Phase 3 planned:** 2026-05-26
 **Phase 3 complete:** 2026-05-26
-**Next action:** `/gsd:discuss-phase 4` or `/gsd:plan-phase 4` to plan Phase 4 (Search & Filter)
+**Phase 4 plan 01 complete:** 2026-05-27
+**Next action:** Execute 04-02-PLAN.md (SearchInput + TagChip UI components)
 
 ---
 *State initialized: 2026-05-21 during roadmap creation*
