@@ -1,6 +1,6 @@
 # Dev Journal
 
-A personal developer journal built to explore software development with [GSD](https://github.com/dexaai/gsd) — a structured, plan-driven development workflow powered by Claude Code.
+A personal developer journal built to explore software development with [GSD](https://github.com/gsd-build/get-shit-done) — a structured, plan-driven development workflow powered by Claude Code.
 
 This project was built from scratch in 6 days (2026-05-21 to 2026-05-27) across 4 phases and 11 plans, delivering 12/12 v1 requirements with 102 commits.
 
@@ -65,6 +65,6 @@ tests/                   # Vitest test suite
 
 ## How it was built
 
-This project was developed using [GSD](https://github.com/dexaai/gsd) — a structured development workflow that enforces planning before coding. Each feature phase followed: research → UI design contract → planning → execution → verification.
+This project was developed using [GSD](https://github.com/gsd-build/get-shit-done) — a structured development workflow that enforces planning before coding. Each feature phase followed: research → UI design contract → planning → execution → verification.
 
 See `.planning/MILESTONES.md` for the full development history.
