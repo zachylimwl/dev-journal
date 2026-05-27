@@ -115,7 +115,7 @@ Plans:
 - [x] 04-02-PLAN.md — Create SearchInput client component (debounced router.replace, preserves ?tag=); create ActiveFilterChip (× clears ?tag=, preserves ?q=); upgrade TagChip to 'use client' button with router.push
 
 **Wave 3** *(blocked on Wave 2 completion)*
-- [ ] 04-03-PLAN.md — Wire page.tsx: add searchParams prop, call searchEntries(), compose SearchInput + result count + ActiveFilterChip + empty states; human verification checkpoint
+- [x] 04-03-PLAN.md — Wire page.tsx: add searchParams prop, call searchEntries(), compose SearchInput + result count + ActiveFilterChip + empty states; human verification checkpoint
 
 **Cross-cutting constraints:**
 - page.tsx remains a Server Component — no `'use client'` at page level
@@ -136,7 +136,7 @@ Plans:
 | 1. Foundation | 2/2 | Complete   | 2026-05-22 |
 | 2. Read Loop | 2/2 | Complete   | 2026-05-25 |
 | 3. Write Loop | 4/4 | Complete   | 2026-05-26 |
-| 4. Search & Filter | 2/3 | In Progress|  |
+| 4. Search & Filter | 3/3 | Complete   | 2026-05-27 |
 
 ---
 
@@ -165,3 +165,4 @@ Plans:
 *Phase 2 planned: 2026-05-25*
 *Phase 2 completed: 2026-05-25*
 *Phase 4 planned: 2026-05-27*
+*Phase 4 completed: 2026-05-27*
