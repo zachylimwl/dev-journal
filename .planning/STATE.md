@@ -93,6 +93,21 @@ Phase 1 [✓] → Phase 2 [✓] → Phase 3 [✓] → Phase 4 [✓]
 
 ---
 
+## Deferred Items
+
+Items acknowledged and deferred at milestone close on 2026-05-27:
+
+| Category | Item | Status |
+|----------|------|--------|
+| uat_gaps | Phase 01: 01-HUMAN-UAT.md | passed — 0 pending scenarios (false positive) |
+| verification_gaps | Phase 02: 02-VERIFICATION.md | human_needed — browser verified during execution |
+| verification_gaps | Phase 03: 03-VERIFICATION.md | human_needed — browser verified during execution |
+| verification_gaps | Phase 04: 04-VERIFICATION.md | human_needed — browser verified at checkpoint |
+
+Known deferred items at close: 4 (see above — all functionally verified in-browser)
+
+---
+
 ## Blockers
 
 None.
