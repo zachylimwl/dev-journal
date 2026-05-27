@@ -12,7 +12,7 @@
 
 - [x] **Phase 1: Foundation** - DB layer, schema, Server Actions scaffold — nothing visible yet (completed 2026-05-22)
 - [x] **Phase 2: Read Loop** - Entry list, entry detail, and Markdown rendering with syntax highlighting (completed 2026-05-25)
-- [x] **Phase 3: Write Loop** - Full entry CRUD, autosave, and tag management (completed 2026-05-26)
+- [x] **Phase 3: Write Loop** - Full entry CRUD, autosave, and tag management (completed 2026-05-26)
 - [ ] **Phase 4: Search & Filter** - FTS5 keyword search, tag filter, and combined query
 
 ---
@@ -104,8 +104,28 @@ Plans:
   2. Clicking a tag chip filters the entry list to entries with that tag only
   3. Keyword search and tag filter can be active at the same time, narrowing results to entries that match both
   4. Searching for an empty string or clearing the search returns all entries (no crash on empty FTS5 query)
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 3 plans
+
+Plans:
+
+**Wave 1**
+- [ ] 04-01-PLAN.md — Implement searchEntries(q, tag) Server Action with FTS5 guard, four query branches, two-query tag merge; write tests/search.test.ts (TDD — RED then GREEN)
+
+**Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 04-02-PLAN.md — Create SearchInput client component (debounced router.replace, preserves ?tag=); create ActiveFilterChip (× clears ?tag=, preserves ?q=); upgrade TagChip to 'use client' button with router.push
+
+**Wave 3** *(blocked on Wave 2 completion)*
+- [ ] 04-03-PLAN.md — Wire page.tsx: add searchParams prop, call searchEntries(), compose SearchInput + result count + ActiveFilterChip + empty states; human verification checkpoint
+
+**Cross-cutting constraints:**
+- page.tsx remains a Server Component — no `'use client'` at page level
+- `searchParams` is a Promise in Next.js 16 — must be `await`-ed
+- FTS5 empty-query guard is mandatory: never call `MATCH ?` with empty string — branch on `hasQ` before any FTS5 SQL
+- `SearchInput` must be wrapped in `<Suspense fallback={null}>` in page.tsx — required by Next.js App Router for useSearchParams()
+- FTS5 input sanitization: strip non-word/space characters from q before MATCH to prevent syntax errors
+- Two-query approach for FTS5 tag retrieval: FTS5 gives entry IDs; second query fetches tags via IN(); merge with Map pattern
+- LIMIT 200 on all raw SQL FTS5 queries
+- `EditorTagChip` (editor-specific, delete-only) is NOT affected by the TagChip upgrade
 
 ---
 
@@ -116,7 +136,7 @@ Plans:
 | 1. Foundation | 2/2 | Complete   | 2026-05-22 |
 | 2. Read Loop | 2/2 | Complete   | 2026-05-25 |
 | 3. Write Loop | 4/4 | Complete   | 2026-05-26 |
-| 4. Search & Filter | 0/? | Not started | - |
+| 4. Search & Filter | 0/3 | Not started | - |
 
 ---
 
@@ -144,3 +164,4 @@ Plans:
 *Phase 1 planned: 2026-05-22*
 *Phase 2 planned: 2026-05-25*
 *Phase 2 completed: 2026-05-25*
+*Phase 4 planned: 2026-05-27*
