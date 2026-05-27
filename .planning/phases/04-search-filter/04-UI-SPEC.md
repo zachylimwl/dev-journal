@@ -1,10 +1,11 @@
 ---
 phase: 4
 slug: search-filter
-status: draft
+status: approved
 shadcn_initialized: true
 preset: base-nova
 created: 2026-05-27
+reviewed_at: 2026-05-27
 ---
 
 # Phase 4 — UI Design Contract: Search & Filter
@@ -54,11 +55,13 @@ All sizes and weights match established patterns from existing components. No ne
 | Role | Size | Weight | Line Height | Usage |
 |------|------|--------|-------------|-------|
 | Body | 14px (text-sm) | 400 (normal) | 1.5 | Search input placeholder, result count label, snippet text |
-| Label | 12px (text-xs) | 500 (medium) | 1.4 | Active filter chip text, tag chip text, date labels |
+| Label | 12px (text-xs) | 400 (normal) | 1.4 | Active filter chip text, tag chip text, date labels |
 | Heading | 18px (text-lg) | 600 (semibold) | 1.3 | Entry card titles (unchanged) |
 | Display | 24px (text-2xl) | 600 (semibold) | 1.2 | AppHeader logo (unchanged) |
 
 Source: Derived from `src/components/entry-card.tsx`, `src/components/app-header.tsx`, `src/components/tag-chip.tsx` (detected).
+
+Focal point: SearchInput is the primary visual anchor on the home page — it is rendered first in the content column at full width, drawing the user's eye before the entry list.
 
 ---
 
@@ -109,7 +112,7 @@ New and modified components this phase:
 - Renders only when `?tag` param is set
 - Layout: `inline-flex items-center gap-1.5 px-3 py-1 rounded-full`
 - Background: `bg-zinc-100` (matches TagChip — visual family consistency)
-- Text: "Active filter: {tagName}" — text-xs (12px), font-medium (500), text-zinc-600
+- Text: "Active filter: {tagName}" — text-xs (12px), font-normal (400), text-zinc-600
 - × button: Lucide `X` icon at 12px, text-zinc-400, hover:text-zinc-700; clicking clears `?tag=` param from URL (preserves `?q=` if set)
 - × button touch target: min 32px via `p-1` wrapper around the icon
 - Placement: below ResultCountLabel (if shown), above entry list; `mt-2` below count label
@@ -120,7 +123,7 @@ New and modified components this phase:
 - Wraps content in `<button>` instead of `<span>`
 - onClick: `router.push('/?tag=' + encodeURIComponent(name))`
 - Cursor: `cursor-pointer`
-- Visual: unchanged — `inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-zinc-100 text-zinc-600`
+- Visual: unchanged — `inline-flex items-center px-2 py-0.5 rounded-full text-xs font-normal bg-zinc-100 text-zinc-600`
 - Hover: `hover:bg-zinc-200 hover:text-zinc-900` — subtle darkening, no outline
 - Active state when current page tag matches: no special styling in Phase 4 (deferred)
 
