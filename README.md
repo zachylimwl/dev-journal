@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dev Journal
 
-## Getting Started
+A personal developer journal built to explore software development with [GSD](https://github.com/dexaai/gsd) — a structured, plan-driven development workflow powered by Claude Code.
 
-First, run the development server:
+This project was built from scratch in 6 days (2026-05-21 to 2026-05-27) across 4 phases and 11 plans, delivering 12/12 v1 requirements with 102 commits.
+
+## What it does
+
+Write free-form Markdown journal entries, tag them by project, and search or filter past entries to find what you worked on and learned. Single-user, no login, runs locally.
+
+**Core value:** A fast place to write and later find anything you've worked on — entries writable in seconds and searchable in seconds.
+
+## Stack
+
+- **Framework:** Next.js 16.2.6 (App Router, TypeScript)
+- **Database:** SQLite via `better-sqlite3` + Drizzle ORM + FTS5 full-text search
+- **Editor:** `@uiw/react-md-editor` with split-pane preview
+- **Rendering:** `react-markdown` + `remark-gfm` + `rehype-highlight`
+- **Styling:** Tailwind CSS v4 + shadcn/ui
+- **Tests:** Vitest (33 tests)
+
+## Getting started
+
+**Prerequisites:** Node.js 18+
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) — the database is created automatically on first run.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build    # production build
+npm run test     # run Vitest test suite
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features (v1.0)
 
-## Learn More
+- **Write** — create and edit entries in a split-pane Markdown editor with autosave (no Save button)
+- **Tag** — add project tags to entries; tags are normalized (trimmed, lowercased, deduplicated)
+- **Read** — browse all entries newest-first with preview snippets; open any entry for full Markdown rendering with syntax highlighting
+- **Delete** — delete entries with a confirmation dialog
+- **Search** — full-text search powered by SQLite FTS5 with BM25 ranking; results update as you type (debounced)
+- **Filter** — click any tag chip to filter by project; combine with keyword search to narrow further
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/                   # Next.js App Router pages
+    page.tsx             # Home — entry list + search
+    entries/[id]/        # Entry detail + edit pages
+    new/                 # New entry page
+  components/            # React components
+  lib/
+    actions.ts           # Server Actions (CRUD + search)
+    db/                  # Drizzle schema + singleton
+    utils/               # format utilities
+tests/                   # Vitest test suite
+.planning/               # GSD planning artifacts
+  phases/                # Phase plans, summaries, and verification
+  milestones/            # Archived milestone artifacts
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## How it was built
 
-## Deploy on Vercel
+This project was developed using [GSD](https://github.com/dexaai/gsd) — a structured development workflow that enforces planning before coding. Each feature phase followed: research → UI design contract → planning → execution → verification.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `.planning/MILESTONES.md` for the full development history.
